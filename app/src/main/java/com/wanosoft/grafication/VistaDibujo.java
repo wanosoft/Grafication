@@ -16,10 +16,7 @@ public class VistaDibujo extends View {
         super(context);
     }
 
-    private int width = 0, height = 0;
-    private int wc=0,hc=0;
-    private int px=0,py=0;
-
+    //onDraw es un método sobreescribible que permite dibujar, es provisto por la clase Canvas
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -28,12 +25,23 @@ public class VistaDibujo extends View {
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(10);
 
-        width=getWidth();
-        height = getHeight();
-        paint.setColor(Color.RED);
+        //Chasis
+        paint.setColor(Color.GRAY);
+        canvas.drawRect(new RectF(250,350,700,600),paint);
+        paint.setColor(Color.GRAY);
+        canvas.drawRect(new RectF(150,600,900,800),paint);
 
-        px=(width/2)-(wc/2);
-        canvas.drawLine(0,0,100,100,paint);
-        canvas.drawRect(new RectF(180,20,220,80),paint);
+
+        //Llanta trasera
+        paint.setColor(Color.BLACK);
+        canvas.drawCircle(200,800,100,paint);
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(200,800,30,paint);
+
+        //Llanta delantera
+        paint.setColor(Color.BLACK);
+        canvas.drawCircle(850,800,100,paint);
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(850,800,30,paint);
     }
 }
